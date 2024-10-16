@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Simulador.Modelos
 {
-    internal class Universo : Corpo
+    //Classe responsável por gerenciar todos os corpos;
+    internal class Universo
     {
         private const double G = 6.674 * 1e-11;
         public  List<Corpo> Corpos { get; set;}
@@ -15,11 +16,53 @@ namespace Simulador.Modelos
         {
             Corpos = new List<Corpo>();
         }
+
         // Metodo para adicionar corpo 
         public void AdicionarCorpo(Corpo corpo)
         {
+            if (corpo == null)
+            {
+                throw new ArgumentNullException(nameof(corpo), "Não pode ser nulo.");
+            }
+
+            if (Corpos.Contains(corpo))
+            {
+                throw new InvalidOperationException("O corpo já existe nesse universo");
+            }
+
             Corpos.Add(corpo);
+            Console.WriteLine("Corpo adicionado testando metodo!! ");
         }
+
+        //Metodo pra criar corpos aleatorios com a quantidade a partir da entrada do usuario:
+        public void CriarCorposAleatorios(int quantidade)
+        {
+            Random random = new Random();
+
+            for (int i = 0; i < quantidade; i++)
+            {
+                string nome = "Corpo " + i;
+                double massa = random.NextDouble() * (1e24 - 1e20) + 1e20; // Massa entre 1e20 e 1e24 kg
+                double raio = random.NextDouble() * (1000 - 100) + 100; // Raio entre 100 e 1000 km
+                double densidade = random.NextDouble() * (5 - 1) + 1; // Densidade entre 1 e 5 g/cm³
+                double posX = random.NextDouble();
+                double posY = random.NextDouble();
+                double velX = random.NextDouble() * 10; // Velocidade X aleatória
+                double velY = random.NextDouble() * 10; // Velocidade Y aleatória
+
+                Corpo corpo = new Corpo(nome, massa, raio, densidade, posX, posY, velX, velY);
+                AdicionarCorpo(corpo);
+            }
+        }
+
+        public void visualizarCorpos()
+        {
+            foreach (Corpo c in Corpos)
+            {
+                Console.WriteLine(c.getNome());
+            }
+        }
+
 
         // Calculo da posição dos Corpos em um determinado momento
 
