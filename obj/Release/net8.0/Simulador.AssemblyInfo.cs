@@ -12,9 +12,9 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Simulador")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1fc0eda963077aa28499801fd86b2fc241105d3d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa2e70556e54486fe83f1cdc0687ba84384cdb69")]
 [assembly: System.Reflection.AssemblyProductAttribute("Simulador")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Simulador")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
