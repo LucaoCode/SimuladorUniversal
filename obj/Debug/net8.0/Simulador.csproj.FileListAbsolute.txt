@@ -1,0 +1,4 @@
+C:\Users\LUCAS LIMA\Workspace\ProgAvanSis\Simulador\obj\Debug\net8.0\Simulador.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LUCAS LIMA\Workspace\ProgAvanSis\Simulador\obj\Debug\net8.0\Simulador.AssemblyInfoInputs.cache
+C:\Users\LUCAS LIMA\Workspace\ProgAvanSis\Simulador\obj\Debug\net8.0\Simulador.AssemblyInfo.cs
+C:\Users\LUCAS LIMA\Workspace\ProgAvanSis\Simulador\obj\Debug\net8.0\Simulador.csproj.CoreCompileInputs.cache
