@@ -59,7 +59,14 @@ namespace Simulador.Modelos
         {
             foreach (Corpo c in Corpos)
             {
-                Console.WriteLine(c.getNome());
+                Console.WriteLine("Nome: " + c.getNome());
+                Console.WriteLine("Massa: " + c.getMassa() + " kg");
+                Console.WriteLine("Raio: " + c.getRaio() + " m");
+                Console.WriteLine("Densidade: " + c.getDensidade() + " kg/m³");
+                Console.WriteLine("Posição X: " + c.getPosX() + " m");
+                Console.WriteLine("Posição Y: " + c.getPosY() + " m");
+                Console.WriteLine("Velocidade X: " + c.getVelX() + " m/s");
+                Console.WriteLine("Velocidade Y: " + c.getVelY() + " m/s");
             }
         }
 

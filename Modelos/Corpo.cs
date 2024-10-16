@@ -8,6 +8,12 @@ namespace Simulador.Modelos;
 
 internal class Corpo
 {
+
+    /*
+    MASSA quilogramas (kg)
+    DENSIDADE metro cúbico(kg/m³)
+    RAIO metros quadrados(m²)*/
+
     private string Nome {get; set;}
     private double Massa {get; set;}
     private double Raio {get; set;}
