@@ -80,21 +80,18 @@ namespace Simulador.Modelos
                 {
                     Corpo corpo1 = Corpos[i];
                     Corpo corpo2 = Corpos[j];
+                    
+                    double distancia = CalcularDistancia(corpo1, corpo2);
 
-                    // Calcular a distância entre os corpos
-                    double distancia = corpo1.CalcularDistancia(corpo2);
-
-                    // Evitar divisão por zero
+                    // Evitar divisão por zero (se for 0 quer dizer que colidiu, ainda n fiz essa parte
                     if (distancia == 0) continue;
 
-                    // Calcular a força gravitacional entre os dois corpos
+                    // Calcular a força gravitacional entre os dois corpos F = G * (m1 * m2) / r^2 e depois calcular as componentes em X e Y 
                     double forca = (corpo1.getMassa() * corpo2.getMassa()) / (distancia * distancia) * G;
-
-                    // Calcular as componentes da força em X e Y
                     double forcaX = forca * (corpo2.getPosX() - corpo1.getPosX()) / distancia;
                     double forcaY = forca * (corpo2.getPosY() - corpo1.getPosY()) / distancia;
 
-                    // Atualizar a velocidade dos corpos
+                    // Atualizar a velocidade dos corpos usando Lock para prevenir que tentem alterar o msm lugar ao mesmo tempo
                     lock (corpo1)
                     {
                         corpo1.setVelX(corpo1.getVelX() + (forcaX / corpo1.getMassa()) * deltaTempo);
@@ -120,15 +117,15 @@ namespace Simulador.Modelos
         {
             double deltaTime = 1.0; // Intervalo de tempo fixo em segundos
 
-            while (true) // Loop principal da simulação
+            while (true) 
             {
                 AtualizarEstado(deltaTime); // Atualiza forças e posições
-                ExibirVelocidades(); // Exibir as posições na tela
+                ExibirVelocidadeEPosicoes(); // Exibir as posições na tela
                 Thread.Sleep(1000); // Aguardar 1 segundo
             }
         }
 
-        private void ExibirVelocidades()
+        private void ExibirVelocidadeEPosicoes()
         {
             Console.Clear(); // Limpa a tela
 
@@ -137,8 +134,21 @@ namespace Simulador.Modelos
             {
                 // Exibe o nome do corpo e suas velocidades em X e Y
                 Console.WriteLine($"{corpo.getNome()}: VelX = {corpo.getVelX():F2}, VelY = {corpo.getVelY():F2}");
+                Console.WriteLine($"PosX = {corpo.getPosX():F2}, PosY = {corpo.getPosY():F2}");
             }
             Console.WriteLine(); // Para mover para a próxima linha
+        }
+
+        //Retornar quantidade de corpos no universo
+        public int qtdCorpos() => Corpos.Count;
+
+        //Calcular a distância entre dois objetos do tipo Corpo usando a fórmula da distância euclidiana. 
+        public double CalcularDistancia(Corpo corpo1, Corpo corpo2)
+        {
+            double deltaX = corpo1.getPosX() - corpo2.getPosX(); // Diferença na posição X
+            double deltaY = corpo1.getPosY() - corpo2.getPosY(); // Diferença na posição y
+
+            return Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
         }
 
 

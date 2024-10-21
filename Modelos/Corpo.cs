@@ -84,7 +84,6 @@ internal class Corpo
 
     }
 
-
     /*Sobrescrever o metodo equals e GetHashCode pra verificar o corpo ja existe ao ser adicionado, não permitindo dois corpos com o mesmo nome
     o uso do equals e GetHashCode facilita a busca.*/
     public override bool Equals(object? obj)
@@ -101,11 +100,4 @@ internal class Corpo
         return Nome.GetHashCode();
     }
 
-    // Método para calcular a distância entre dois corpos
-    public double CalcularDistancia(Corpo outro)
-    {
-        double deltaX = outro.PosX - this.PosX; // Diferença na posição X
-        double deltaY = outro.PosY - this.PosY; // Diferença na posição Y
-        return Math.Sqrt(deltaX * deltaX + deltaY * deltaY); // Retorna a distância Euclidiana
-    }
 }
