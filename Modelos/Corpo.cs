@@ -16,7 +16,7 @@ internal class Corpo
 
     private string Nome {get; set;}
     private double Massa {get; set;}
-    private double Raio {get; set;}
+    private double Raio => CalcularRaio();
     private double Densidade {get; set;}
     private double PosX {get; set;}
     private double PosY {get; set;}
@@ -25,21 +25,45 @@ internal class Corpo
 
     public string getNome() => this.Nome;
     public double getMassa() => this.Massa;
-    public double getRaio()
+    public double CalcularRaio()
     {
-        return Math.Pow((3 * Massa) / (4 * Math.PI * Densidade), 1.0 / 3.0);
+        /*Fórmula para calcular o raio quando se tem a Massa e a Densidade conhecida.
+        O raio de um corpo esférico é igual à raiz cúbica do quociente entre três vezes a massa 𝑀 do corpo
+        e o produto de quatro vezes a constante matemática pi(π) e a densidade média 𝜌 do corpo.*/
+        return Math.Pow((3 * Massa) / (4 * Math.PI * Densidade), 1.0 / 3.0); //RAIO metros quadrados(m²)
     }
+    public double getRaio() => this.Raio;
     public double getDensidade() => this.Densidade;
     public double getPosX() => this.PosX;
     public double getPosY() => this.PosY;
     public double getVelX() => this.VelX;
     public double getVelY() => this.VelY;
 
-    public Corpo(string nome,double massa,double raio,double densidade, double posX,double posY, double velX, double velY)
+    public void setPosX(double posX)
+    {
+        this.PosX = posX;
+    }
+
+    public void setPosY(double posY)
+    {
+        this.PosY = posY;
+    }
+
+    public void setVelX(double velX)
+    {
+        this.VelX = velX;
+    }
+
+    public void setVelY(double velY)
+    {
+        this.VelY = velY;
+    }
+
+
+    public Corpo(string nome,double massa,double densidade, double posX,double posY, double velX, double velY)
     {
         this.Nome = nome;
         this.Massa = massa;
-        this.Raio = raio;
         this.Densidade = densidade;
         this.PosX = posX;
         this.PosY = posY;
@@ -52,7 +76,6 @@ internal class Corpo
     {
         this.Nome = " ";
         this.Massa = 0;
-        this.Raio = 0;
         this.Densidade = 1;
         this.PosX = 0;
         this.PosY = 0;
@@ -76,5 +99,13 @@ internal class Corpo
     public override int GetHashCode()
     {
         return Nome.GetHashCode();
+    }
+
+    // Método para calcular a distância entre dois corpos
+    public double CalcularDistancia(Corpo outro)
+    {
+        double deltaX = outro.PosX - this.PosX; // Diferença na posição X
+        double deltaY = outro.PosY - this.PosY; // Diferença na posição Y
+        return Math.Sqrt(deltaX * deltaX + deltaY * deltaY); // Retorna a distância Euclidiana
     }
 }
