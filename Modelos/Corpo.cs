@@ -22,6 +22,8 @@ internal class Corpo
     private double PosY {get; set;}
     private double VelX {get; set;}
     private double VelY {get; set;}
+    private double ForcaX { get; set; }
+    private double ForcaY { get; set; }
 
     public string getNome() => this.Nome;
     public double getMassa() => this.Massa;
@@ -38,6 +40,8 @@ internal class Corpo
     public double getPosY() => this.PosY;
     public double getVelX() => this.VelX;
     public double getVelY() => this.VelY;
+    public double getForcaX() => this.ForcaX;
+    public double getForcaY() => this.ForcaY;
 
     public void setPosX(double posX)
     {
@@ -58,9 +62,18 @@ internal class Corpo
     {
         this.VelY = velY;
     }
+    
+    public void setForcaY(double forcaY)
+    {
+        this.ForcaY = forcaY;
+    }
 
+    public void setForcaX(double forcaX)
+    {
+        this.ForcaX = forcaX;
+    }
 
-    public Corpo(string nome,double massa,double densidade, double posX,double posY, double velX, double velY)
+    public Corpo(string nome,double massa,double densidade, double posX,double posY, double velX, double velY, double forX, double forY)
     {
         this.Nome = nome;
         this.Massa = massa;
@@ -69,6 +82,8 @@ internal class Corpo
         this.PosY = posY;
         this.VelX = velX;
         this.VelY = velY;
+        this.ForcaX = forX;
+        this.ForcaY = forY;
        
     }
 
@@ -81,6 +96,8 @@ internal class Corpo
         this.PosY = 0;
         this.VelX = 0;
         this.VelY = 0;
+        this.ForcaX = 0;
+        this.ForcaY = 0;
 
     }
 
