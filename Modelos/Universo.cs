@@ -103,7 +103,7 @@ namespace Simulador.Modelos
                 corpo.setForcaY(0);
             }
 
-            // Calculo das forças gravitacionais entre os corpos
+            // Calculo das forças gravitacionais entre os corpos 
             Parallel.For(0, Corpos.Count, i =>
             {
                 for (int j = i + 1; j < Corpos.Count; j++)
@@ -134,17 +134,17 @@ namespace Simulador.Modelos
 
         public void Simular()
         {
-            double deltaTime = 1.0; // Intervalo de tempo fixo em segundos
+            double deltaTempo = 1.0; // Intervalo de tempo fixo em segundos
             double tempoTotal = 0.0; // Tempo total da simulação
             double duracaoSimulacao = 50.0; // Duração total da simulação em segundos (por exemplo, 10 segundos)
 
             while (tempoTotal < duracaoSimulacao)
             {
-                AtualizarEstado(deltaTime); // Atualiza as forças e posições dos corpos
+                AtualizarEstado(deltaTempo); // Atualiza as forças e posições dos corpos
                 ExibirVelocidadeEPosicoes(); // Exibe as posições e velocidades na tela
 
-                Thread.Sleep(1000); // Aguarda 1 segundo (ou você pode ajustar o tempo de espera se deltaTime mudar)
-                tempoTotal += deltaTime; // Atualiza o tempo total
+                Thread.Sleep(1000); // Aguarda 1 segundo
+                tempoTotal += deltaTempo; // Atualiza o tempo total
             }
         }
 
@@ -159,10 +159,10 @@ namespace Simulador.Modelos
                 Console.WriteLine($"{corpo.getNome()}: VelX = {corpo.getVelX():F2}, VelY = {corpo.getVelY():F2}, ForcaX = {corpo.getForcaX():F2}, ForcaY = {corpo.getForcaY():F2}");
                 Console.WriteLine($"PosX = {corpo.getPosX():F2}, PosY = {corpo.getPosY():F2}");
             }
-            Console.WriteLine(); // Para mover para a próxima linha
+            Console.WriteLine(); 
         }
 
-        //Retornar quantidade de corpos no universo
+        
         public int qtdCorpos() => Corpos.Count;
 
         //Calcular a distância entre dois objetos do tipo Corpo usando a fórmula da distância euclidiana. 
@@ -172,6 +172,13 @@ namespace Simulador.Modelos
             double deltaY = corpo1.getPosY() - corpo2.getPosY(); // Diferença na posição y
 
             return Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
+        }
+
+        //Tratamento de colisão
+        public void colisao(Corpo corpo1, Corpo corpo2)
+        {
+            bool teveColisao = false;
+            //fazer o resto
         }
 
 
