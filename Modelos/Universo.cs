@@ -50,7 +50,7 @@ namespace Simulador.Modelos
                 double velX = random.NextDouble() * 10; // Velocidade X aleatória
                 double velY = random.NextDouble() * 10; // Velocidade Y aleatória
 
-                Corpo corpo = new Corpo(nome, massa, raio, densidade, posX, posY, velX, velY);
+                Corpo corpo = new Corpo(nome, massa, densidade, posX, posY, velX, velY,0,0);
                 AdicionarCorpo(corpo);
             }
         }
@@ -68,6 +68,117 @@ namespace Simulador.Modelos
                 Console.WriteLine("Velocidade X: " + c.getVelX() + " m/s");
                 Console.WriteLine("Velocidade Y: " + c.getVelY() + " m/s");
             }
+        }
+
+
+        //Calcular a força entre dois corpos num método separado
+        void calcularForcaG(Corpo corpo1, Corpo corpo2, double deltaTempo)
+        {
+            double hipotenusa = CalcularDistancia(corpo1, corpo2);
+
+            if (hipotenusa == 0) return; // LOGICA DA COLISAO AQUI
+
+            // Calcular a força gravitacional entre os dois corpos
+            double forca = (corpo1.getMassa() * corpo2.getMassa()) / (Math.Pow(hipotenusa, 2)) * G;
+
+            // Calcular as componentes da força em X e Y
+            double forcaX = forca * (corpo2.getPosX() - corpo1.getPosX()) / hipotenusa;
+            double forcaY = forca * (corpo2.getPosY() - corpo1.getPosY()) / hipotenusa;
+
+            // Atualizar a força resultante em cada corpo
+            corpo1.setForcaX(corpo1.getForcaX() + forcaX);
+            corpo1.setForcaY(corpo1.getForcaY() + forcaY);
+
+            corpo2.setForcaX(corpo2.getForcaX() - forcaX);
+            corpo2.setForcaY(corpo2.getForcaY() - forcaY);
+        }
+
+        //Usando programação paralela para calcular a distancia e velocidade entre os corpos:
+        public void AtualizarEstado(double deltaTempo)
+        {
+            // Resetar as forças antes do cálculo
+            foreach (var corpo in Corpos)
+            {
+                corpo.setForcaX(0);
+                corpo.setForcaY(0);
+            }
+
+            // Calculo das forças gravitacionais entre os corpos 
+            Parallel.For(0, Corpos.Count, i =>
+            {
+                for (int j = i + 1; j < Corpos.Count; j++)
+                {
+                    Corpo corpo1 = Corpos[i];
+                    Corpo corpo2 = Corpos[j];
+
+                    calcularForcaG(corpo1, corpo2, deltaTempo);
+                }
+            });
+
+            // Atualizar as velocidades com base nas forças
+            Parallel.For(0, Corpos.Count, i =>
+            {
+                var corpo = Corpos[i];
+                double aceleracaoX = corpo.getForcaX() / corpo.getMassa();
+                double aceleracaoY = corpo.getForcaY() / corpo.getMassa();
+
+                corpo.setVelX(corpo.getVelX() + aceleracaoX * deltaTempo);
+                corpo.setVelY(corpo.getVelY() + aceleracaoY * deltaTempo);
+
+                // Atualizar a posição com base na velocidade
+                corpo.setPosX(corpo.getPosX() + corpo.getVelX() * deltaTempo);
+                corpo.setPosY(corpo.getPosY() + corpo.getVelY() * deltaTempo);
+            });
+        }
+
+
+        public void Simular()
+        {
+            double deltaTempo = 1.0; // Intervalo de tempo fixo em segundos
+            double tempoTotal = 0.0; // Tempo total da simulação
+            double duracaoSimulacao = 50.0; // Duração total da simulação em segundos (por exemplo, 10 segundos)
+
+            while (tempoTotal < duracaoSimulacao)
+            {
+                AtualizarEstado(deltaTempo); // Atualiza as forças e posições dos corpos
+                ExibirVelocidadeEPosicoes(); // Exibe as posições e velocidades na tela
+
+                Thread.Sleep(1000); // Aguarda 1 segundo
+                tempoTotal += deltaTempo; // Atualiza o tempo total
+            }
+        }
+
+        private void ExibirVelocidadeEPosicoes()
+        {
+            Console.Clear(); // Limpa a tela
+
+            Console.WriteLine("Velocidade e Posições dos corpos:");
+            foreach (var corpo in Corpos)
+            {
+                // Exibe o nome do corpo e suas velocidades em X e Y
+                Console.WriteLine($"{corpo.getNome()}: VelX = {corpo.getVelX():F2}, VelY = {corpo.getVelY():F2}, ForcaX = {corpo.getForcaX():F2}, ForcaY = {corpo.getForcaY():F2}");
+                Console.WriteLine($"PosX = {corpo.getPosX():F2}, PosY = {corpo.getPosY():F2}");
+            }
+            Console.WriteLine(); 
+        }
+
+        
+        public int qtdCorpos() => Corpos.Count;
+
+        //Calcular a distância entre dois objetos do tipo Corpo usando a fórmula da distância euclidiana. 
+        public double CalcularDistancia(Corpo corpo1, Corpo corpo2)
+        {
+            double deltaX = corpo1.getPosX() - corpo2.getPosX(); // Diferença na posição X
+            double deltaY = corpo1.getPosY() - corpo2.getPosY(); // Diferença na posição y
+
+            return Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
+        }
+
+        //Tratamento de colisão
+        public void colisao(Corpo corpo1, Corpo corpo2)
+        {
+            bool teveColisao = false;
+            //fazer o resto
         }
 
 
