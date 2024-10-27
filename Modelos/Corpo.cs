@@ -14,14 +14,14 @@ internal class Corpo
     DENSIDADE metro cúbico(kg/m³)
     RAIO metros quadrados(m²)*/
 
-    private string Nome {get; set;}
-    private double Massa {get; set;}
+    private string Nome { get; set; }
+    private double Massa { get; set; }
     private double Raio => CalcularRaio();
-    private double Densidade {get; set;}
-    private double PosX {get; set;}
-    private double PosY {get; set;}
-    private double VelX {get; set;}
-    private double VelY {get; set;}
+    private double Densidade { get; set; }
+    private double PosX { get; set; }
+    private double PosY { get; set; }
+    private double VelX { get; set; }
+    private double VelY { get; set; }
     private double ForcaX { get; set; }
     private double ForcaY { get; set; }
 
@@ -62,7 +62,7 @@ internal class Corpo
     {
         this.VelY = velY;
     }
-    
+
     public void setForcaY(double forcaY)
     {
         this.ForcaY = forcaY;
@@ -73,7 +73,7 @@ internal class Corpo
         this.ForcaX = forcaX;
     }
 
-    public Corpo(string nome,double massa,double densidade, double posX,double posY, double velX, double velY, double forX, double forY)
+    public Corpo(string nome, double massa, double densidade, double posX, double posY, double velX, double velY, double forX, double forY)
     {
         this.Nome = nome;
         this.Massa = massa;
@@ -84,7 +84,7 @@ internal class Corpo
         this.VelY = velY;
         this.ForcaX = forX;
         this.ForcaY = forY;
-       
+
     }
 
     public Corpo()
@@ -116,5 +116,47 @@ internal class Corpo
     {
         return Nome.GetHashCode();
     }
+
+    // Tratamento das colisões, caso ocorram. O método de colisão deverá sobrecarregar o operador “+”;
+    //No tratamento de colisões, deverá ser levado em consideração a quantidade de movimento de cada corpo, para calcular as velocidades nos eixos X e Y após a colisão.
+    public static (Corpo, Corpo) operator +(Corpo corpo1, Corpo corpo2)
+    {
+        if (corpo1 == null || corpo2 == null) throw new ArgumentNullException("Corpos não podem ser nulos.");
+
+        
+        double distancia = corpo1.CalcularDistancia(corpo2);
+        double somaRaios = corpo1.getRaio() + corpo2.getRaio();
+
+        
+        if (distancia <= somaRaios)
+        {
+            
+            double momentoCorpo1 = corpo1.getMassa() * Math.Sqrt(Math.Pow(corpo1.getVelX(), 2) + Math.Pow(corpo1.getVelY(), 2));
+            double momentoCorpo2 = corpo2.getMassa() * Math.Sqrt(Math.Pow(corpo2.getVelX(), 2) + Math.Pow(corpo2.getVelY(), 2));
+
+            
+            double novaVelX1 = (momentoCorpo1 * corpo1.getVelX() + momentoCorpo2 * corpo2.getVelX()) / (corpo1.getMassa() + corpo2.getMassa());
+            double novaVelY1 = (momentoCorpo1 * corpo1.getVelY() + momentoCorpo2 * corpo2.getVelY()) / (corpo1.getMassa() + corpo2.getMassa());
+
+            double novaVelX2 = novaVelX1; 
+            double novaVelY2 = novaVelY1; 
+
+            
+            corpo1.setVelX(novaVelX1);
+            corpo1.setVelY(novaVelY1);
+            corpo2.setVelX(novaVelX2);
+            corpo2.setVelY(novaVelY2);
+        }
+
+        return (corpo1, corpo2);
+    }
+
+    public double CalcularDistancia(Corpo corpo)
+    {
+        double deltaX = this.getPosX() - corpo.getPosX();
+        double deltaY = this.getPosY() - corpo.getPosY();
+        return Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
+    }
+
 
 }

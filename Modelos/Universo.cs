@@ -10,7 +10,7 @@ namespace Simulador.Modelos
     internal class Universo
     {
         private const double G = 6.674 * 1e-11;
-        public  List<Corpo> Corpos { get; set;}
+        public List<Corpo> Corpos { get; set; }
 
         public Universo()
         {
@@ -50,7 +50,7 @@ namespace Simulador.Modelos
                 double velX = random.NextDouble() * 10; // Velocidade X aleatória
                 double velY = random.NextDouble() * 10; // Velocidade Y aleatória
 
-                Corpo corpo = new Corpo(nome, massa, densidade, posX, posY, velX, velY,0,0);
+                Corpo corpo = new Corpo(nome, massa, densidade, posX, posY, velX, velY, 0, 0);
                 AdicionarCorpo(corpo);
             }
         }
@@ -112,6 +112,9 @@ namespace Simulador.Modelos
                     Corpo corpo2 = Corpos[j];
 
                     calcularForcaG(corpo1, corpo2, deltaTempo);
+
+                    // Verifica e trata colisões
+                    var (novoCorpo1, novoCorpo2) = corpo1 + corpo2; // Isso chamará o operador sobrecarregado
                 }
             });
 
@@ -159,10 +162,10 @@ namespace Simulador.Modelos
                 Console.WriteLine($"{corpo.getNome()}: VelX = {corpo.getVelX():F2}, VelY = {corpo.getVelY():F2}, ForcaX = {corpo.getForcaX():F2}, ForcaY = {corpo.getForcaY():F2}");
                 Console.WriteLine($"PosX = {corpo.getPosX():F2}, PosY = {corpo.getPosY():F2}");
             }
-            Console.WriteLine(); 
+            Console.WriteLine();
         }
 
-        
+
         public int qtdCorpos() => Corpos.Count;
 
         //Calcular a distância entre dois objetos do tipo Corpo usando a fórmula da distância euclidiana. 
