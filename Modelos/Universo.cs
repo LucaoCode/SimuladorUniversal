@@ -30,43 +30,106 @@ namespace Simulador.Modelos
                 throw new InvalidOperationException("O corpo já existe nesse universo");
             }
 
-            Corpos.Add(corpo);
-            Console.WriteLine("Corpo adicionado testando metodo!! ");
+            Corpos.Add(corpo);            
         }
 
         //Metodo pra criar corpos aleatorios com a quantidade a partir da entrada do usuario:
         public void CriarCorposAleatorios(int quantidade)
         {
             Random random = new Random();
+            double massaMinima = 3.30e23;  
+            double massaMaxima = 1.90e27;
+
+            double densidadeMinima = 0.687;
+            double densidadeMaxima = 5.52;
+
+            double distanciaMinima = 1 * 149.6e6; // 1  Unidade Astronômica em km
+            double distanciaMaxima = 10 * 149.6e6; // 10  Unidade Astronômica em km
+
+            double velocidadeMaxima = 50.0; //50 unidades por segundo
+
+            double randomValue = random.NextDouble();
+
+            //Gerar Massa aleatória dentre os limites defindos 
+            double GerarMassaAleatoriaLogaritmica(double massaMinima, double massaMaxima)
+            {
+
+                double logMin = Math.Log10(massaMinima);
+                double logMax = Math.Log10(massaMaxima);
+
+
+                double randomLogValue = logMin + random.NextDouble() * (logMax - logMin);
+
+
+                return Math.Pow(10, randomLogValue);
+            }
+
+            //Gerar Densidade aleatoria dentro dos limites definidos
+            double GerarDensidadeAleatoria(double densidadeMinima, double densidadeMaxima)
+            {
+                // Gera um número aleatório entre os limites das densidades
+                return densidadeMinima + random.NextDouble() * (densidadeMaxima - densidadeMinima);
+            }
+
+
+            //Gerar Posições aleatorias dentro dos limites definidos
+            (double x, double y) GerarPosicaoAleatoria(double distanciaMinima, double distanciaMaxima)
+            {
+                Random random = new Random();
+                
+                double distancia = random.NextDouble() * (distanciaMaxima - distanciaMinima) + distanciaMinima;
+                
+                double angulo = random.NextDouble() * 2 * Math.PI; // Ângulo entre 0 e 2*pi
+
+                // Calcular as coordenadas x e y
+                double x = distancia * Math.Cos(angulo);
+                double y = distancia * Math.Sin(angulo);
+
+                return (x, y);
+            }
 
             for (int i = 0; i < quantidade; i++)
             {
                 string nome = "Corpo " + i;
-                double massa = random.NextDouble() * (1e24 - 1e20) + 1e20; // Massa entre 1e20 e 1e24 kg
-                double raio = random.NextDouble() * (1000 - 100) + 100; // Raio entre 100 e 1000 km
-                double densidade = random.NextDouble() * (5 - 1) + 1; // Densidade entre 1 e 5 g/cm³
-                double posX = random.NextDouble();
-                double posY = random.NextDouble();
-                double velX = random.NextDouble() * 10; // Velocidade X aleatória
-                double velY = random.NextDouble() * 10; // Velocidade Y aleatória
+                double massa = GerarMassaAleatoriaLogaritmica(massaMinima, massaMaxima); // Massa entre 1,90 × 10²⁷ kg  e 3,30 × 10²³ kg                
+                double densidade = GerarDensidadeAleatoria(densidadeMinima, densidadeMaxima); // Densidade entre 0.687 e 5.52 g/cm³
+                (double x, double y) = GerarPosicaoAleatoria(distanciaMinima, distanciaMaxima);
+                double posX = x/1000;
+                double posY = y/1000;
+                double velX = random.NextDouble() * velocidadeMaxima;
+                double velY = random.NextDouble() * velocidadeMaxima; 
 
                 Corpo corpo = new Corpo(nome, massa, densidade, posX, posY, velX, velY, 0, 0);
+                
                 AdicionarCorpo(corpo);
             }
         }
 
         public void visualizarCorpos()
         {
+            // Método para formatar a massa
+            string FormatarMassa(double massa)
+            {
+                string massaFormatada = massa.ToString("0.0000E+0", System.Globalization.CultureInfo.InvariantCulture);
+                massaFormatada = massaFormatada.Replace("E", " × 10^");
+
+                massaFormatada = massaFormatada.Replace("× 10^+", "× 10^");
+
+                return massaFormatada;
+            }
+
+
             foreach (Corpo c in Corpos)
             {
-                Console.WriteLine("Nome: " + c.getNome());
-                Console.WriteLine("Massa: " + c.getMassa() + " kg");
-                Console.WriteLine("Raio: " + c.getRaio() + " m");
-                Console.WriteLine("Densidade: " + c.getDensidade() + " kg/m³");
-                Console.WriteLine("Posição X: " + c.getPosX() + " m");
-                Console.WriteLine("Posição Y: " + c.getPosY() + " m");
-                Console.WriteLine("Velocidade X: " + c.getVelX() + " m/s");
-                Console.WriteLine("Velocidade Y: " + c.getVelY() + " m/s");
+                Console.WriteLine($"Nome: {c.getNome()}");
+                Console.WriteLine($"Massa: {FormatarMassa(c.getMassa())} kg");
+                Console.WriteLine($"Raio: {c.getRaio():F3} m");
+                Console.WriteLine($"Densidade: {c.getDensidade():F3} kg/m³");
+                Console.WriteLine($"Posição X: {c.getPosX():F3} km"); 
+                Console.WriteLine($"Posição Y: {c.getPosY():F3} km"); 
+                Console.WriteLine($"Velocidade X: {c.getVelX():F3} m/s");
+                Console.WriteLine($"Velocidade Y: {c.getVelY():F3} m/s");
+
             }
         }
 
@@ -178,11 +241,7 @@ namespace Simulador.Modelos
         }
 
         //Tratamento de colisão
-        public void colisao(Corpo corpo1, Corpo corpo2)
-        {
-            bool teveColisao = false;
-            //fazer o resto
-        }
+
 
 
         // Calculo da posição dos Corpos em um determinado momento

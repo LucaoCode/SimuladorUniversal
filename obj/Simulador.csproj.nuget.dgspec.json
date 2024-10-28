@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/home/guilherme/Documentos/SimuladorUniversal/Simulador.csproj": {}
+    "C:\\Users\\novo\\SimuladorUniversal\\Simulador.csproj": {}
   },
   "projects": {
-    "/home/guilherme/Documentos/SimuladorUniversal/Simulador.csproj": {
+    "C:\\Users\\novo\\SimuladorUniversal\\Simulador.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/guilherme/Documentos/SimuladorUniversal/Simulador.csproj",
+        "projectUniqueName": "C:\\Users\\novo\\SimuladorUniversal\\Simulador.csproj",
         "projectName": "Simulador",
-        "projectPath": "/home/guilherme/Documentos/SimuladorUniversal/Simulador.csproj",
-        "packagesPath": "/home/guilherme/.nuget/packages/",
-        "outputPath": "/home/guilherme/Documentos/SimuladorUniversal/obj/",
+        "projectPath": "C:\\Users\\novo\\SimuladorUniversal\\Simulador.csproj",
+        "packagesPath": "C:\\Users\\novo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\novo\\SimuladorUniversal\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/guilherme/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\novo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -58,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/252/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

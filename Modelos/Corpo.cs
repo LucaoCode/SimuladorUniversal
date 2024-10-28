@@ -12,6 +12,7 @@ internal class Corpo
     /*
     MASSA quilogramas (kg)
     DENSIDADE metro cúbico(kg/m³)
+    DISTANCIA EM KM
     RAIO metros quadrados(m²)*/
 
     private string Nome { get; set; }
@@ -76,7 +77,7 @@ internal class Corpo
     public Corpo(string nome, double massa, double densidade, double posX, double posY, double velX, double velY, double forX, double forY)
     {
         this.Nome = nome;
-        this.Massa = massa;
+        this.Massa = massa;        
         this.Densidade = densidade;
         this.PosX = posX;
         this.PosY = posY;
