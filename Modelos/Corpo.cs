@@ -160,4 +160,16 @@ internal class Corpo
     }
 
 
+    public void AtualizarVelocidade(double deltaVx, double deltaVy)
+    {
+        VelX += deltaVx;
+        VelY += deltaVy;
+    }
+
+    public void AtualizarPosicao(double tempo)
+    {
+        PosX += VelX * tempo;
+        PosY += VelY * tempo;
+    }
+
 }

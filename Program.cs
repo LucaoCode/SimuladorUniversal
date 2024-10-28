@@ -25,11 +25,24 @@ catch (Exception ex)
     Console.WriteLine($"Erro: {ex.Message}");
 }
 
-NovoUniverso.visualizarCorpos();
-
+// Exibir a quantidade inicial de corpos
 Console.WriteLine($"{NovoUniverso.qtdCorpos()}");
 
+double tempoSimulacao = 1.0 ; // Intervalo de tempo em segundos
+int numeroIteracoes = 10; // Número de iterações na simulação
 
+for (int i = 0; i < numeroIteracoes; i++)
+{
+    NovoUniverso.Simular(tempoSimulacao);
 
-NovoUniverso.Simular(5);
+    // Limpar a tela para exibir as novas informações
+    Console.Clear();
+
+    // Visualizar os corpos atualizados
+    NovoUniverso.visualizarCorpos();
+
+    // Aguardar um curto intervalo para melhor visualização
+    System.Threading.Thread.Sleep(1000); // Atraso em milissegundos
+}
+
 Console.ReadKey();
