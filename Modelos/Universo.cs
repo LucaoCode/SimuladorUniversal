@@ -198,33 +198,27 @@ namespace Simulador.Modelos
         }
 
 
-        public void Simular()
+        public void Simular(int duracaoSimulacao)
         {
-            double deltaTempo = 1.0; // Intervalo de tempo fixo em segundos
+            double deltaTempo =1.0; // Intervalo de tempo fixo em segundos
             double tempoTotal = 0.0; // Tempo total da simulação
-            double duracaoSimulacao = 50.0; // Duração total da simulação em segundos (por exemplo, 10 segundos)
+           
 
             while (tempoTotal < duracaoSimulacao)
             {
                 AtualizarEstado(deltaTempo); // Atualiza as forças e posições dos corpos
-                ExibirVelocidadeEPosicoes(); // Exibe as posições e velocidades na tela
+                ExibirVelocidadeEPosicoes();
 
                 Thread.Sleep(1000); // Aguarda 1 segundo
                 tempoTotal += deltaTempo; // Atualiza o tempo total
             }
+            Console.WriteLine($"Duração total da simulação: {tempoTotal}");
         }
 
         private void ExibirVelocidadeEPosicoes()
         {
-            Console.Clear(); // Limpa a tela
-
-            Console.WriteLine("Velocidade e Posições dos corpos:");
-            foreach (var corpo in Corpos)
-            {
-                // Exibe o nome do corpo e suas velocidades em X e Y
-                Console.WriteLine($"{corpo.getNome()}: VelX = {corpo.getVelX():F2}, VelY = {corpo.getVelY():F2}, ForcaX = {corpo.getForcaX():F2}, ForcaY = {corpo.getForcaY():F2}");
-                Console.WriteLine($"PosX = {corpo.getPosX():F2}, PosY = {corpo.getPosY():F2}");
-            }
+            Console.Clear();
+            visualizarCorpos();
             Console.WriteLine();
         }
 
