@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\novo\\SimuladorUniversal\\Simulador.csproj": {}
+    "C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\Simulador.csproj": {}
   },
   "projects": {
-    "C:\\Users\\novo\\SimuladorUniversal\\Simulador.csproj": {
+    "C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\Simulador.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\novo\\SimuladorUniversal\\Simulador.csproj",
+        "projectUniqueName": "C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\Simulador.csproj",
         "projectName": "Simulador",
-        "projectPath": "C:\\Users\\novo\\SimuladorUniversal\\Simulador.csproj",
-        "packagesPath": "C:\\Users\\novo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\novo\\SimuladorUniversal\\obj\\",
+        "projectPath": "C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\Simulador.csproj",
+        "packagesPath": "C:\\Users\\LUCAS LIMA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\novo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LUCAS LIMA\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

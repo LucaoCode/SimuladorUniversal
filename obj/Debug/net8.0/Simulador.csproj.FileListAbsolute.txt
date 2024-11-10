@@ -62,3 +62,18 @@ C:\Users\novo\SimuladorUniversal\obj\Debug\net8.0\refint\Simulador.dll
 C:\Users\novo\SimuladorUniversal\obj\Debug\net8.0\Simulador.pdb
 C:\Users\novo\SimuladorUniversal\obj\Debug\net8.0\Simulador.genruntimeconfig.cache
 C:\Users\novo\SimuladorUniversal\obj\Debug\net8.0\ref\Simulador.dll
+C:\Users\LUCAS LIMA\Workspace\SimuladorUniversal\obj\Debug\net8.0\Simulador.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LUCAS LIMA\Workspace\SimuladorUniversal\obj\Debug\net8.0\Simulador.AssemblyInfoInputs.cache
+C:\Users\LUCAS LIMA\Workspace\SimuladorUniversal\obj\Debug\net8.0\Simulador.AssemblyInfo.cs
+C:\Users\LUCAS LIMA\Workspace\SimuladorUniversal\obj\Debug\net8.0\Simulador.csproj.CoreCompileInputs.cache
+C:\Users\LUCAS LIMA\Workspace\SimuladorUniversal\obj\Debug\net8.0\Simulador.sourcelink.json
+C:\Users\LUCAS LIMA\Workspace\SimuladorUniversal\obj\Debug\net8.0\Simulador.dll
+C:\Users\LUCAS LIMA\Workspace\SimuladorUniversal\obj\Debug\net8.0\refint\Simulador.dll
+C:\Users\LUCAS LIMA\Workspace\SimuladorUniversal\obj\Debug\net8.0\Simulador.pdb
+C:\Users\LUCAS LIMA\Workspace\SimuladorUniversal\bin\Debug\net8.0\Simulador.exe
+C:\Users\LUCAS LIMA\Workspace\SimuladorUniversal\bin\Debug\net8.0\Simulador.deps.json
+C:\Users\LUCAS LIMA\Workspace\SimuladorUniversal\bin\Debug\net8.0\Simulador.runtimeconfig.json
+C:\Users\LUCAS LIMA\Workspace\SimuladorUniversal\bin\Debug\net8.0\Simulador.dll
+C:\Users\LUCAS LIMA\Workspace\SimuladorUniversal\bin\Debug\net8.0\Simulador.pdb
+C:\Users\LUCAS LIMA\Workspace\SimuladorUniversal\obj\Debug\net8.0\Simulador.genruntimeconfig.cache
+C:\Users\LUCAS LIMA\Workspace\SimuladorUniversal\obj\Debug\net8.0\ref\Simulador.dll

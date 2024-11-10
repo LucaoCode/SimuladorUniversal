@@ -14,6 +14,7 @@ try
     if (int.TryParse(input, out qtdCorpos))
     {
         NovoUniverso.CriarCorposAleatorios(qtdCorpos);
+        NovoUniverso.GravacaoInicial();
     }
     else
     {

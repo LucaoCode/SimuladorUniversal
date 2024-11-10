@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\novo\\SimuladorUniversal\\",
+  "WorkspaceRootPath": "C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\novo\\SimuladorUniversal\\Modelos\\Universo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\Modelos\\Universo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Modelos\\Universo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\novo\\SimuladorUniversal\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\novo\\SimuladorUniversal\\Modelos\\Corpo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\Modelos\\Corpo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Modelos\\Corpo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,13 +42,26 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2024-11-10T21:13:02.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Universo.cs",
-              "DocumentMoniker": "C:\\Users\\novo\\SimuladorUniversal\\Modelos\\Universo.cs",
+              "DocumentMoniker": "C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\Modelos\\Universo.cs",
               "RelativeDocumentMoniker": "Modelos\\Universo.cs",
-              "ToolTip": "C:\\Users\\novo\\SimuladorUniversal\\Modelos\\Universo.cs",
+              "ToolTip": "C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\Modelos\\Universo.cs",
               "RelativeToolTip": "Modelos\\Universo.cs",
-              "ViewState": "AgIAANcAAAAAAAAAAIAwwN8AAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAowDoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T01:42:00.595Z",
               "EditorCaption": ""
@@ -53,11 +70,11 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Corpo.cs",
-              "DocumentMoniker": "C:\\Users\\novo\\SimuladorUniversal\\Modelos\\Corpo.cs",
+              "DocumentMoniker": "C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\Modelos\\Corpo.cs",
               "RelativeDocumentMoniker": "Modelos\\Corpo.cs",
-              "ToolTip": "C:\\Users\\novo\\SimuladorUniversal\\Modelos\\Corpo.cs",
+              "ToolTip": "C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\Modelos\\Corpo.cs",
               "RelativeToolTip": "Modelos\\Corpo.cs",
-              "ViewState": "AgIAAJAAAAAAAAAAAAAAAKMAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAowJYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T16:56:37.64Z",
               "EditorCaption": ""
@@ -66,11 +83,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\novo\\SimuladorUniversal\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\novo\\SimuladorUniversal\\Program.cs",
+              "ToolTip": "C:\\Users\\LUCAS LIMA\\Workspace\\SimuladorUniversal\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACYAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T17:12:35.064Z",
               "EditorCaption": ""

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Simulador")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+450f54c4074cb9e940e8d5f5577474d0d63acd9c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5b8b3f4468e6b04e75cb2f8543053b8c8c92a0c1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Simulador")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Simulador")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

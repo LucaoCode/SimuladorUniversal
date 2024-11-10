@@ -238,6 +238,37 @@ namespace Simulador.Modelos
             return Math.Max(distanciaEfetiva, 0); // Garantir que a distância não seja negativa
         }
 
+        // Metodo para escrever os dados iniciais e gravar 
+        public void GravacaoInicial(List<Corpo> corpos)
+        {
+            try
+            {
+                string now = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                string caminhoArquivo = $"../Gravacao/GravacaoInicial/GravacaoInicial_{now}.txt";
+
+                // Verifica se o diretório existe, se não, cria
+                string diretorio = Path.GetDirectoryName(caminhoArquivo);
+                if (!Directory.Exists(diretorio))
+                {
+                    Directory.CreateDirectory(diretorio);
+                }
+
+                using (StreamWriter writer = new StreamWriter(caminhoArquivo))
+                {
+                    foreach (var corpo in corpos)
+                    {
+                        writer.WriteLine($"Nome: {corpo.getNome()}, Massa: {corpo.getMassa():F2}, Densidade: {corpo.getDensidade():F2}, " +
+                                         $"Raio: {corpo.getRaio():F2}, PosX: {corpo.getPosX():F2}, PosY: {corpo.getPosY():F2}, " +
+                                         $"VelX: {corpo.getVelX():F2}, VelY: {corpo.getVelY():F2}, ForcaX: {corpo.getForcaX():F2}, ForcaY: {corpo.getForcaY():F2}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao gravar arquivo: {ex.Message}");
+            }
+        }
+
         //Tratamento de colisão
 
 
